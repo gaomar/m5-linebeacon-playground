@@ -16,7 +16,7 @@ const gas = new GAS();
 const app = express();
 app.use('/static', express.static('static'));
 
-app.post("/callback", line.middleware(config), (req, res) => {
+app.post("/linebot", line.middleware(config), (req, res) => {
   Promise.all(req.body.events.map(handleEvent))
     .then(result => res.json(result))
     .catch(err => {
